@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../app/services/forecast_lookup"
+require_relative "../../app/services/forecast"
 
-RSpec.describe ForecastLookup do
+RSpec.describe Forecast do
   let(:lookup) { described_class.new(query: q) }
   let(:q) { nil }
 
