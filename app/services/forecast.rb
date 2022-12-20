@@ -3,17 +3,32 @@ require "dry-initializer"
 class Forecast
   extend Dry::Initializer
 
-  option :query, default: proc { "Cupertino" }
+  option :query, reader: false
+  option :geocoder
 
   def self.lookup(**kwargs)
     new(**kwargs)
   end
 
   def valid?
-    query != "gobbledegook"
+    !invalid?
   end
 
   def invalid?
-    !valid?
+    coordinates.empty?
+  end
+
+  def coordinates
+    results = geocoder.search(query)
+
+    return [] if results.empty?
+
+    results.first.coordinates
+  end
+
+  private
+
+  def query
+    @query || "Cupertino"
   end
 end
