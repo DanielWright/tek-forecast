@@ -1,5 +1,5 @@
 class ForecastController < ApplicationController
   def fetch
-    head :ok
+    render json: {}, status: :ok
   end
 end
