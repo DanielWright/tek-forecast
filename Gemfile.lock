@@ -71,6 +71,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     diff-lcs (1.5.0)
+    dry-initializer (3.1.1)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -163,6 +164,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  dry-initializer
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-rails (~> 6.0.1)
