@@ -5,6 +5,7 @@ ruby "3.1.3"
 
 gem "rails", "~> 7.0.4"
 
+gem "dalli", "~> 3.2.3"
 gem "dry-initializer", "~> 3.1.1"
 gem "dry-struct", "~> 1.6.0"
 gem "faraday", "~> 2.7.2"

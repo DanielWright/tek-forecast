@@ -2,11 +2,6 @@ require "dry-initializer"
 require "dry-struct"
 require "faraday"
 
-# TODO: Move me
-module Types
-  include Dry.Types()
-end
-
 class Forecast
   extend Dry::Initializer
   extend Forwardable
@@ -24,7 +19,7 @@ class Forecast
   end
 
   def to_json
-    fetch.to_json
+    to_hash.to_json
   end
 
   private
@@ -49,17 +44,5 @@ class Forecast
     parsed_body = JSON.parse(response.body, symbolize_names: true)
 
     CurrentWeather.new(parsed_body[:current_weather]).to_hash
-  end
-
-  class CurrentWeather < Dry::Struct::Value
-    attribute :weathercode, Types::Integer
-    attribute :temperature, Types::Float
-
-    def to_hash
-      {
-        weathercode: weathercode,
-        temperature: temperature
-      }
-    end
   end
 end
