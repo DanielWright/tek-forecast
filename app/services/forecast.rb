@@ -58,7 +58,8 @@ class Forecast
     def to_hash
       {
         weathercode: weathercode,
-        temperature: temperature
+        temperature: temperature,
+        time: Time.now
       }
     end
   end
