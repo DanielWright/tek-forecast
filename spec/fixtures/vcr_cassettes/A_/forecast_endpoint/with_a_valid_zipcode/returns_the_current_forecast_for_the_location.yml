@@ -72,4 +72,79 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"latitude":44.920002,"longitude":-0.32000017,"generationtime_ms":0.3770589828491211,"utc_offset_seconds":0,"timezone":"GMT","timezone_abbreviation":"GMT","elevation":4.0,"current_weather":{"temperature":52.0,"windspeed":10.2,"winddirection":228.0,"weathercode":1,"time":"2022-12-21T02:00"}}'
   recorded_at: Wed, 21 Dec 2022 02:55:04 GMT
+- request:
+    method: get
+    uri: https://photon.komoot.io/api?lang=en&q=90210,USA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Wed, 21 Dec 2022 18:47:03 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - get
+      Access-Control-Allow-Headers:
+      - "*"
+      Expires:
+      - Wed, 21 Dec 2022 19:47:03 GMT
+      Cache-Control:
+      - max-age=3600
+    body:
+      encoding: ASCII-8BIT
+      string: '{"features":[{"geometry":{"coordinates":[-118.399584,34.0690102],"type":"Point"},"type":"Feature","properties":{"osm_id":5282642762,"country":"United
+        States","city":"Beverly Hills","countrycode":"US","postcode":"90210","county":"Los
+        Angeles County","type":"house","osm_type":"N","osm_key":"shop","street":"Dayton
+        Way","osm_value":"hairdresser","name":"Blown USA","state":"California"}}],"type":"FeatureCollection"}'
+  recorded_at: Wed, 21 Dec 2022 18:47:03 GMT
+- request:
+    method: get
+    uri: https://api.open-meteo.com/v1/forecast?current_weather=true&latitude=34.0690102&longitude=-118.399584&temperature_unit=fahrenheit
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Dec 2022 18:50:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: '{"latitude":34.05631,"longitude":-118.399826,"generationtime_ms":0.45299530029296875,"utc_offset_seconds":0,"timezone":"GMT","timezone_abbreviation":"GMT","elevation":79.0,"current_weather":{"temperature":61.3,"windspeed":3.0,"winddirection":76.0,"weathercode":0,"time":"2022-12-21T18:00"}}'
+  recorded_at: Wed, 21 Dec 2022 18:50:02 GMT
 recorded_with: VCR 6.1.0

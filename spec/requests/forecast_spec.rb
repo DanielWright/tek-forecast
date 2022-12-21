@@ -37,7 +37,7 @@ RSpec.describe "A /forecast endpoint", vcr: { record: :new_episodes } do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(parsed_response).to include(
-        temperature: a_value_within(0.5).of(49)
+        temperature: a_value_within(0.5).of(48)
       )
     end
   end
@@ -65,7 +65,7 @@ RSpec.describe "A /forecast endpoint", vcr: { record: :new_episodes } do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(parsed_response).to include(
-        temperature: a_value_within(0.5).of(52.5)
+        temperature: a_value_within(0.5).of(61)
       )
     end
   end

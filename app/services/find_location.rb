@@ -1,4 +1,5 @@
 require "dry-initializer"
+require "dry-struct"
 
 class FindLocation
   extend Dry::Initializer
@@ -7,27 +8,19 @@ class FindLocation
   option :geocoder
 
   def self.lookup(**kwargs)
-    new(**kwargs)
+    new(**kwargs).fetch_results
   end
 
-  def valid?
-    !invalid?
-  end
+  def fetch_results
+    results = geocoder.search([query, "USA"].join(","))
 
-  def invalid?
-    coordinates.empty?
-  end
+    return NullLocation.new if results.empty?
 
-  # TODO: I'd like to extract the lookup results from this service object, which
-  # _performs_ the lookups. This would allow me to add a null-object for failed
-  # lookups, with a much simpler implementation that adheres to the same
-  # interface.
-  def coordinates
-    results = fetch_results
+    lat, lng = results.first.coordinates
 
-    return [] if results.empty?
-
-    results.first.coordinates
+    Location.new \
+      latitude: lat,
+      longitude: lng
   end
 
   private
@@ -35,8 +28,40 @@ class FindLocation
   def query
     @query || "Cupertino"
   end
+end
 
-  def fetch_results
-    @_results ||= geocoder.search(query)
+module Types
+  include Dry.Types()
+end
+
+
+class Location < Dry::Struct::Value
+  attribute :latitude, Types::Float
+  attribute :longitude, Types::Float
+
+  def valid?
+    true
+  end
+
+  def invalid?
+    false
+  end
+
+  def coordinates
+    [latitude, longitude]
+  end
+end
+
+class NullLocation
+  def coordinates
+    []
+  end
+
+  def valid?
+    false
+  end
+
+  def invalid?
+    true
   end
 end
