@@ -1,7 +1,7 @@
 require "spec_helper"
-require_relative "../../app/services/forecast"
+require_relative "../../app/services/find_location"
 
-RSpec.describe Forecast do
+RSpec.describe FindLocation do
   let(:geocoder) { double(:geocoder) }
 
   let(:lookup) { described_class.lookup(query: q, geocoder: geocoder) }

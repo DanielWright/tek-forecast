@@ -1,6 +1,6 @@
 require "dry-initializer"
 
-class Forecast
+class FindLocation
   extend Dry::Initializer
 
   option :query, reader: false
@@ -18,6 +18,10 @@ class Forecast
     coordinates.empty?
   end
 
+  # TODO: I'd like to extract the lookup results from this service object, which
+  # _performs_ the lookups. This would allow me to add a null-object for failed
+  # lookups, with a much simpler implementation that adheres to the same
+  # interface.
   def coordinates
     results = geocoder.search(query)
 

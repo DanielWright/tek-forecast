@@ -8,6 +8,6 @@ class ForecastController < ApplicationController
   private
 
   def forecast
-    @_forecast ||= Forecast.lookup(query: params[:q], geocoder: Geocoder)
+    @_forecast ||= FindLocation.lookup(query: params[:q], geocoder: Geocoder)
   end
 end
