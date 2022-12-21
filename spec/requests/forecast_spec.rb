@@ -1,11 +1,11 @@
 require "rails_helper"
 require "support/vcr"
 
-RSpec.describe "A /forecast endpoint", vcr: true do
+RSpec.describe "A /forecast endpoint", vcr: { record: :new_episodes } do
 
   subject(:forecast!) { get "/forecast", params: { q: search_query } }
 
-  context "without a search query" do
+  context "without a search parameter" do
     let(:search_query) { nil }
 
     it "responds 200 OK" do
@@ -25,18 +25,20 @@ RSpec.describe "A /forecast endpoint", vcr: true do
       forecast!
 
       # FIXME: Danger! Not DRY and not permissive
-      parsed_response = JSON.parse(response.body)
+      parsed_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(parsed_response.keys).to contain_exactly(*%w(current))
+      expect(parsed_response.keys).to contain_exactly(*%i(temperature weathercode))
     end
 
     it "responds with the forecast for Cupertino" do
       forecast!
 
       # FIXME: See above
-      parsed_response = JSON.parse(response.body)
+      parsed_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(parsed_response.symbolize_keys).to include("current": "52F")
+      expect(parsed_response).to include(
+        temperature: a_value_within(0.5).of(49)
+      )
     end
   end
 
@@ -53,7 +55,21 @@ RSpec.describe "A /forecast endpoint", vcr: true do
     end
   end
 
+  context "with a valid zipcode" do
+    let(:search_query) { "90210" }
+
+    it "returns the current forecast for the location" do
+      forecast!
+
+      # FIXME: See above
+      parsed_response = JSON.parse(response.body, symbolize_names: true)
+
+      expect(parsed_response).to include(
+        temperature: a_value_within(0.5).of(52.5)
+      )
+    end
+  end
+
   context "with a valid set of coordinates"
-  context "with a valid zipcode"
   context "with a valid address"
 end
