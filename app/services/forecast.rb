@@ -24,7 +24,7 @@ class Forecast
   end
 
   def to_json
-    fetch.to_json
+    to_hash.to_json
   end
 
   private

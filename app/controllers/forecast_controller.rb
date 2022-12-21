@@ -8,7 +8,9 @@ class ForecastController < ApplicationController
   private
 
   def forecast
-    @_forecast ||= Forecast.fetch(location: location)
+    @_forecast ||= Rails.cache.fetch(location.coordinates, expires_in: 30.minutes) do
+      Forecast.fetch(location: location)
+    end
   end
 
   def location
