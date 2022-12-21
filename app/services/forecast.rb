@@ -2,11 +2,6 @@ require "dry-initializer"
 require "dry-struct"
 require "faraday"
 
-# TODO: Move me
-module Types
-  include Dry.Types()
-end
-
 class Forecast
   extend Dry::Initializer
   extend Forwardable

@@ -29,7 +29,3 @@ class FindLocation
     @query || "Cupertino"
   end
 end
-
-module Types
-  include Dry.Types()
-end
