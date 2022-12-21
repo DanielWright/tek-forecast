@@ -23,7 +23,7 @@ class FindLocation
   # lookups, with a much simpler implementation that adheres to the same
   # interface.
   def coordinates
-    results = geocoder.search(query)
+    results = fetch_results
 
     return [] if results.empty?
 
@@ -34,5 +34,9 @@ class FindLocation
 
   def query
     @query || "Cupertino"
+  end
+
+  def fetch_results
+    @_results ||= geocoder.search(query)
   end
 end
