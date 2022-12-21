@@ -1,4 +1,6 @@
-# README
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/DanielWright/tek-forecast/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/DanielWright/tek-forecast/tree/main)
+
+# Weather Forecast API
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
