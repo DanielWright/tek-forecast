@@ -27,7 +27,7 @@ RSpec.describe "A /forecast endpoint", vcr: { record: :new_episodes } do
       # FIXME: Danger! Not DRY and not permissive
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
-      expect(parsed_response.keys).to contain_exactly(*%i(temperature weathercode time))
+      expect(parsed_response.keys).to contain_exactly(*%i(temperature weathercode timestamp))
     end
 
     it "responds with the forecast for Cupertino" do

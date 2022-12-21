@@ -33,35 +33,3 @@ end
 module Types
   include Dry.Types()
 end
-
-
-class Location < Dry::Struct::Value
-  attribute :latitude, Types::Float
-  attribute :longitude, Types::Float
-
-  def valid?
-    true
-  end
-
-  def invalid?
-    false
-  end
-
-  def coordinates
-    [latitude, longitude]
-  end
-end
-
-class NullLocation
-  def coordinates
-    []
-  end
-
-  def valid?
-    false
-  end
-
-  def invalid?
-    true
-  end
-end

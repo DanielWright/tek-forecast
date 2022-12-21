@@ -50,17 +50,4 @@ class Forecast
 
     CurrentWeather.new(parsed_body[:current_weather]).to_hash
   end
-
-  class CurrentWeather < Dry::Struct::Value
-    attribute :weathercode, Types::Integer
-    attribute :temperature, Types::Float
-
-    def to_hash
-      {
-        weathercode: weathercode,
-        temperature: temperature,
-        time: Time.now
-      }
-    end
-  end
 end
