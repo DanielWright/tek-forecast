@@ -1,34 +1,36 @@
 require "rails_helper"
+require "support/vcr"
 
-RSpec.describe "A /forecast endpoint" do
-  let(:search_query) { nil }
+RSpec.describe "A /forecast endpoint", vcr: true do
 
   subject(:forecast!) { get "/forecast", params: { q: search_query } }
 
-  it "responds 200 OK" do
-    forecast!
+  context "without a search query" do
+    let(:search_query) { nil }
 
-    expect(response).to have_http_status(:ok)
-  end
+    it "responds 200 OK" do
+      forecast!
 
-  it "responds with JSON" do
-    forecast!
+      expect(response).to have_http_status(:ok)
+    end
 
-    expect(response.content_type).to eq("application/json; charset=utf-8")
-  end
+    it "responds with JSON" do
+      forecast!
 
-  # TODO: revisit JSON schema validation?
-  it "conforms to an expected schema" do
-    forecast!
+      expect(response.content_type).to eq("application/json; charset=utf-8")
+    end
 
-    # FIXME: Danger! Not DRY and not permissive
-    parsed_response = JSON.parse(response.body)
+    # TODO: revisit JSON schema validation?
+    it "conforms to an expected schema" do
+      forecast!
 
-    expect(parsed_response.keys).to contain_exactly(*%w(current))
-  end
+      # FIXME: Danger! Not DRY and not permissive
+      parsed_response = JSON.parse(response.body)
 
-  context "without a search parameter", focus: true do
-    it "retrieves the forecast for Cupertino" do
+      expect(parsed_response.keys).to contain_exactly(*%w(current))
+    end
+
+    it "responds with the forecast for Cupertino" do
       forecast!
 
       # FIXME: See above

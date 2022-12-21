@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://photon.komoot.io/api?lang=en&q=90210
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.18.0 (Ubuntu)
+      Date:
+      - Wed, 21 Dec 2022 00:43:24 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - get
+      Access-Control-Allow-Headers:
+      - "*"
+      Expires:
+      - Wed, 21 Dec 2022 01:43:24 GMT
+      Cache-Control:
+      - max-age=3600
+    body:
+      encoding: ASCII-8BIT
+      string: '{"features":[{"geometry":{"coordinates":[-0.3245858,44.9230023],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":796232757,"extent":[-0.3245858,44.9230023,-0.3245523,44.9229482],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3206182,44.9199446],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733208,"extent":[-0.3222794,44.920061,-0.3165788,44.9196616],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021072","type":"locality"}},{"geometry":{"coordinates":[-0.3250062,44.9236841],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":796232758,"extent":[-0.3254649,44.9247154,-0.3245858,44.9230023],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3223509,44.9200643],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733207,"extent":[-0.3223509,44.9200643,-0.3222794,44.920061],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021072","type":"locality"}},{"geometry":{"coordinates":[-0.3233246,44.9218021],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733607,"extent":[-0.3245523,44.9229482,-0.322147,44.9200548],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.338266,44.9243946],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733211,"extent":[-0.338266,44.9243946,-0.3382283,44.9243682],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021072","type":"locality"}},{"geometry":{"coordinates":[-0.3331092,44.9280577],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":915399399,"extent":[-0.3339248,44.9283541,-0.332499,44.9278681],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3314677,44.9275184],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":915399397,"extent":[-0.3323573,44.9278459,-0.3308012,44.9271373],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3290859,44.9195648],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":438255477,"extent":[-0.3313497,44.9209106,-0.3272714,44.9183074],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021092","type":"locality"}},{"geometry":{"coordinates":[-0.3263206,44.9202029],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":438255085,"extent":[-0.3303211,44.9214989,-0.3223509,44.9191773],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021072","type":"locality"}},{"geometry":{"coordinates":[-0.3255143,44.9247387],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733606,"extent":[-0.3255143,44.9247387,-0.3254649,44.9247154],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3306817,44.9270858],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":915399398,"extent":[-0.3308012,44.9271373,-0.3306817,44.9270858],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.332499,44.9278681],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":915399400,"extent":[-0.332499,44.9278681,-0.3323573,44.9278459],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3280238,44.9259612],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":438255232,"extent":[-0.3306817,44.9270858,-0.3255143,44.9247387],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021082","type":"locality"}},{"geometry":{"coordinates":[-0.3383416,44.9244476],"type":"Point"},"type":"Feature","properties":{"osm_type":"W","osm_id":460733212,"extent":[-0.3383416,44.9244476,-0.338266,44.9243946],"country":"France","osm_key":"waterway","countrycode":"FR","osm_value":"stream","postcode":"33450","name":"P9021072","type":"locality"}}],"type":"FeatureCollection"}'
+  recorded_at: Wed, 21 Dec 2022 00:43:24 GMT
+recorded_with: VCR 6.1.0
